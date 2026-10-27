@@ -564,3 +564,45 @@ checks. JaCoCo reports 86.20% line coverage (2111 of 2449 lines), up from
 list panels, including their cells, have 100% line coverage. Automated checks
 cover warnings, confirmation/cancellation, stale data, persistence, error
 recovery, interval boundaries and recycled cards.
+
+## Product guide updates (28 October 2026)
+
+Complete the Developer Guide acknowledgements and user stories, distinguish future
+requirements, and document registration, ride-edit and roster-review use cases.
+Clarify parsing, validation, overlapping-ride confirmation and saving failures.
+Give ride scenarios a known empty JSON fixture with `nextRideId` 1, and prepare the
+cyclist-deletion scenario independently. Replace the obsolete Find and Help images
+with captures of the current application. Correct the User Guide's delete link and
+keep table rows together when printing.
+
+Using Oracle JDK 25.0.2 on Windows, `./gradlew check coverage shadowJar` passes:
+**852 tests**, no failures, errors or skips, and both Checkstyle checks pass.
+JaCoCo reports **89.45% line coverage** (2307 of 2579 lines), exceeding the 50%
+target. Documentation reference checks and `git diff --check` also pass.
+
+A temporary JavaFX harness uses real logic and JSON storage to check the empty-book
+fixture, ride-ID preservation after `clear`, and the independently prepared John/Alice
+deletion sequence. JavaFX Robot supplies native keyboard input for Find, List and
+both deletion cancellation and confirmation, clicks the Help menu and opens full
+help with F1. These checks pass. The Find results contain Alex Tan and Bernice Lee;
+the full Help menu shows all seven ride aliases without clipped syntax. The Find,
+Help-menu and full-help captures are visually inspected. Full help shows ride editing,
+deletion guidance and the Cyclique guide URL.
+
+A separate temporary check with a failing storage boundary verifies that registration,
+editing and removal remain in memory after saving errors, roster review changes its
+selection without changing records, and the previous saved JSON remains unchanged.
+The harnesses and their disposable data stay outside the repository.
+
+Jekyll 3.10.0 builds the site using the repository's configuration, layouts, Sass,
+Minima theme and Jemoji plugin. The temporary build runtime bypasses unused native
+HTTP-server dependencies; repository dependencies are unchanged. Chrome 155.0.8059.85
+and Firefox 153.0 check both guides at CSS viewport sizes 1920 x 1080, 1536 x 864 and
+853 x 480. All 12 combinations have no horizontal document overflow, missing images
+or broken internal anchors. Both guides are exported to A4 PDF; visual inspection
+of the changed acknowledgements, requirements, use cases, test fixtures and screenshot
+sections passes. The print styling keeps table rows and repeated headings intact.
+
+These checks cover Windows. macOS, Linux and literal operating-system display scaling
+remain untested; the browser checks use viewport sizes rather than changing the
+Windows scaling setting. No application code is changed by this update.

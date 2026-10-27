@@ -100,7 +100,9 @@ Cyclique gives you help in two places: the **Help** menu in the menu bar, and th
 
 Click **Help** in the menu bar to see every command with its format, followed by **Full help...** at the bottom. The commands are listed in this order: `add`, `edit`, `delete`, `find`, `rideadd`, `rideedit`, `ridedelete`, `rideaddcyclist`, `ridedeletecyclist`, `ridelist`, `ridefind`, `list`, `clear`, `help` and `exit`.
 
-![Help menu](images/helpDropdown.png)
+[![Help menu showing all seven ride aliases and their command formats](images/helpDropdown.png)](images/helpDropdown.png)
+
+*The Help menu lists all commands and shows each ride alias beside its full command name. Select the screenshot to open it at full resolution.*
 
 Choosing a command from the menu does **not** run it. It places the start of that command in the command box for you to complete, and then you press Enter as usual:
 
@@ -112,7 +114,9 @@ Choosing a command from the menu does **not** run it. It places the start of tha
 
 Choose **Help → Full help...**, press `F1`, or enter `help` to open the Full help window. It lists the usage, parameters and an example for every command. At the bottom it shows a link to the user guide and a **Copy URL** button that copies the link to your clipboard. After you enter `help`, the result box shows `Opened help window.` If the window is already open, Cyclique focuses it instead of opening a second one.
 
-![Full help window](images/helpMessage.png)
+[![Full help window showing ride editing and deletion guidance with the Cyclique User Guide URL](images/helpMessage.png)](images/helpMessage.png)
+
+*Full help scrolled to ride editing and deletion guidance. Scroll within the window to read other commands, or select this screenshot to open it at full resolution.*
 
 Format: `help`
 
@@ -238,8 +242,8 @@ Examples:
 * `find n/John` returns `john` and `John Doe`
 * `find n/John Doe` returns cyclists whose names contain `John` followed by `Doe`, ignoring case,
   even if there are other words in between.
-* `find n/alex n/david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find n/alex n/david'](images/findAlexDavidResult.png)
+* `find n/alex n/bernice` returns `Alex Tan` and `Bernice Lee` when using the sample data from Quick start. Chloe is hidden, and both rides remain visible.<br>
+  [![Find results showing Alex Tan and Bernice Lee with SOS numbers alongside the unchanged Rides panel](images/findAlexBerniceResult.png)](images/findAlexBerniceResult.png)
 * `find n/alex p/+65 96320842` returns only people whose name contains `alex` and whose phone number is `+65 96320842`.
 * `find l/Punggol x/Intermediate f/250` returns cyclists whose preferred location is Punggol, experience level is Intermediate,
   and FTP is at least 250 W.
@@ -602,7 +606,7 @@ Deletes **every cyclist and every ride** from Cyclique.
 
 Format: `clear`
 
-* `clear` takes no parameters. If you type anything after it, for example `clear 3`, Cyclique rejects the command with `Invalid command format.` and the command usage, and nothing is deleted. To remove a single cyclist, use [`delete`](#deleting-a-person-delete) instead.
+* `clear` takes no parameters. If you type anything after it, for example `clear 3`, Cyclique rejects the command with `Invalid command format.` and the command usage, and nothing is deleted. To remove a single cyclist, use [`delete`](#deleting-a-cyclist-delete) instead.
 * Cyclique does **not** ask you to confirm, and there is no undo. The change is saved automatically, so the data file is emptied as well. Keep a copy of your data file first if you might need the data again (see [Saving the data](#saving-the-data)).
 * Ride IDs are never reused. After `clear`, the next ride you add receives the next unused ID instead of starting again from 1.
 * Any cyclist filter, including a [`ridelist`](#listing-cyclists-registered-for-a-ride-ridelist) selection, is reset.
